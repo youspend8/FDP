@@ -15,7 +15,7 @@ import java.util.function.Function;
 
 public class Global {
 	
-	private HashMap<String, Object> container = new HashMap<String, Object>();
+	private static HashMap<String, Object> container = new HashMap<String, Object>();
 	
 	public static void init() {
 		Properties properties = new Properties();
@@ -23,6 +23,7 @@ public class Global {
 		try (InputStream is = new FileInputStream("/C:/system.properties")) {
 			properties.load(is);
 			properties.entrySet().forEach(prop -> {
+				container.put(prop.getKey().toString(), prop.getValue());
 				System.out.println("[Global] " + prop.getKey() + " :: " + prop.getValue());
 			});
 			
@@ -30,79 +31,78 @@ public class Global {
 			// TODO Auto-generated catch block
 			System.err.println("Global Properties Initilizing Failed");
 		}
-		
 	}
 	
-	public int size() {
+	public static int size() {
 		return container.size();
 	}
-	public boolean isEmpty() {
+	public static boolean isEmpty() {
 		// TODO Auto-generated method stub
 		return container.isEmpty();
 	}
-	public Object get(Object key) {
+	public static Object get(Object key) {
 		return container.get(key);
 	}
-	public boolean containsKey(Object key) {
+	public static boolean containsKey(Object key) {
 		return container.containsKey(key);
 	}
-	public Object put(String key, Object value) {
+	public static Object put(String key, Object value) {
 		return container.put(key, value);
 	}
-	public void putAll(Map<? extends String, ? extends Object> m) {
+	public static void putAll(Map<? extends String, ? extends Object> m) {
 		container.putAll(m);
 	}
-	public Object remove(Object key) {
+	public static Object remove(Object key) {
 		return container.remove(key);
 	}
-	public void clear() {
+	public static void clear() {
 		container.clear();
 	}
-	public boolean containsValue(Object value) {
+	public static boolean containsValue(Object value) {
 		return container.containsValue(value);
 	}
-	public Set<String> keySet() {
+	public static Set<String> keySet() {
 		return container.keySet();
 	}
-	public Collection<Object> values() {
+	public static Collection<Object> values() {
 		return container.values();
 	}
-	public Set<Entry<String, Object>> entrySet() {
+	public static Set<Entry<String, Object>> entrySet() {
 		return container.entrySet();
 	}
-	public Object getOrDefault(Object key, Object defaultValue) {
+	public static Object getOrDefault(Object key, Object defaultValue) {
 		return container.getOrDefault(key, defaultValue);
 	}
-	public Object putIfAbsent(String key, Object value) {
+	public static Object putIfAbsent(String key, Object value) {
 		return container.putIfAbsent(key, value);
 	}
-	public boolean remove(Object key, Object value) {
+	public static boolean remove(Object key, Object value) {
 		return container.remove(key, value);
 	}
-	public boolean replace(String key, Object oldValue, Object newValue) {
+	public static boolean replace(String key, Object oldValue, Object newValue) {
 		return container.replace(key, oldValue, newValue);
 	}
-	public Object replace(String key, Object value) {
+	public static Object replace(String key, Object value) {
 		return container.replace(key, value);
 	}
-	public Object computeIfAbsent(String key, Function<? super String, ? extends Object> mappingFunction) {
+	public static Object computeIfAbsent(String key, Function<? super String, ? extends Object> mappingFunction) {
 		return container.computeIfAbsent(key, mappingFunction);
 	}
-	public Object computeIfPresent(String key,
+	public static Object computeIfPresent(String key,
 			BiFunction<? super String, ? super Object, ? extends Object> remappingFunction) {
 		return container.computeIfPresent(key, remappingFunction);
 	}
-	public Object compute(String key, BiFunction<? super String, ? super Object, ? extends Object> remappingFunction) {
+	public static Object compute(String key, BiFunction<? super String, ? super Object, ? extends Object> remappingFunction) {
 		return container.compute(key, remappingFunction);
 	}
-	public Object merge(String key, Object value,
+	public static Object merge(String key, Object value,
 			BiFunction<? super Object, ? super Object, ? extends Object> remappingFunction) {
 		return container.merge(key, value, remappingFunction);
 	}
-	public void forEach(BiConsumer<? super String, ? super Object> action) {
+	public static void forEach(BiConsumer<? super String, ? super Object> action) {
 		container.forEach(action);
 	}
-	public void replaceAll(BiFunction<? super String, ? super Object, ? extends Object> function) {
+	public static void replaceAll(BiFunction<? super String, ? super Object, ? extends Object> function) {
 		container.replaceAll(function);
 	}
 	public Object clone() {
