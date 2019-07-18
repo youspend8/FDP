@@ -1,6 +1,7 @@
 package kr.co.fdp.config;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -24,6 +25,7 @@ public class MybatisConfig {
 		dataSource.setUrl(URL + "/" + DATABASE);
 		dataSource.setUsername(USERNAME);
 		dataSource.setPassword(PASSWORD);
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		return dataSource;
 	}
 	
@@ -41,4 +43,5 @@ public class MybatisConfig {
 		
 		return new SqlSessionTemplate(sqlSessionFactory);
 	}
+	
 }

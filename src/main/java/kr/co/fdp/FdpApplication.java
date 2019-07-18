@@ -15,6 +15,7 @@ public class FdpApplication extends SpringBootServletInitializer {
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		// TODO Auto-generated method stub
+		Global.init();
 		return builder.sources(FdpApplication.class);
 	}
 

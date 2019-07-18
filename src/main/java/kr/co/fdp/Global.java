@@ -19,8 +19,7 @@ public class Global {
 	
 	public static void init() {
 		Properties properties = new Properties();
-		
-		try (InputStream is = new FileInputStream("/C:/system.properties")) {
+		try (InputStream is = new FileInputStream(System.getenv("FDP_PROPERTIES"))) {
 			properties.load(is);
 			properties.entrySet().forEach(prop -> {
 				container.put(prop.getKey().toString(), prop.getValue());
@@ -33,6 +32,23 @@ public class Global {
 		}
 	}
 	
+	static {
+		Properties properties = new Properties();
+		try (InputStream is = new FileInputStream(System.getenv("FDP_PROPERTIES"))) {
+			properties.load(is);
+			properties.entrySet().forEach(prop -> {
+				container.put(prop.getKey().toString(), prop.getValue());
+				System.out.println("[Global] " + prop.getKey() + " :: " + prop.getValue());
+			});
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.err.println("Global Properties Initilizing Failed");
+		}
+	}
+	public static String getSystemEnvName() {
+		return "FDP_PROPERTIES";
+	}
 	public static int size() {
 		return container.size();
 	}
