@@ -17,24 +17,9 @@ public class Global {
 	
 	private static HashMap<String, Object> container = new HashMap<String, Object>();
 	
-	public static void init() {
-		Properties properties = new Properties();
-		try (InputStream is = new FileInputStream(System.getenv("FDP_PROPERTIES"))) {
-			properties.load(is);
-			properties.entrySet().forEach(prop -> {
-				container.put(prop.getKey().toString(), prop.getValue());
-				System.out.println("[Global] " + prop.getKey() + " :: " + prop.getValue());
-			});
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.err.println("Global Properties Initilizing Failed");
-		}
-	}
-	
 	static {
 		Properties properties = new Properties();
-		try (InputStream is = new FileInputStream(System.getenv("FDP_PROPERTIES"))) {
+		try (InputStream is = new FileInputStream((String) System.getenv(Global.getSystemEnvName()))) {
 			properties.load(is);
 			properties.entrySet().forEach(prop -> {
 				container.put(prop.getKey().toString(), prop.getValue());

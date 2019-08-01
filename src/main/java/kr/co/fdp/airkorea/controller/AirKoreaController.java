@@ -21,7 +21,6 @@ public class AirKoreaController {
 			@ModelAttribute AirKoreaVO query,
 			@PathVariable(name="operation") String operation) {
 
-		System.out.println(System.getenv("FDP_PROPERTIES"));
 		switch (operation) {
 			case "getMsrstnAcctoRltmMesureDnsty":
 				return airPolInfoService.getMsrstnAcctoRltmMesureDnsty(query);
