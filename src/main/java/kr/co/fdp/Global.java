@@ -1,13 +1,9 @@
 package kr.co.fdp;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Properties;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
@@ -17,20 +13,6 @@ public class Global {
 	
 	private static HashMap<String, Object> container = new HashMap<String, Object>();
 	
-	static {
-		Properties properties = new Properties();
-		try (InputStream is = new FileInputStream((String) System.getenv(Global.getSystemEnvName()))) {
-			properties.load(is);
-			properties.entrySet().forEach(prop -> {
-				container.put(prop.getKey().toString(), prop.getValue());
-				System.out.println("[Global] " + prop.getKey() + " :: " + prop.getValue());
-			});
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.err.println("Global Properties Initilizing Failed");
-		}
-	}
 	public static String getSystemEnvName() {
 		return "FDP_PROPERTIES";
 	}
@@ -109,5 +91,7 @@ public class Global {
 	public Object clone() {
 		return container.clone();
 	}
-	
+	public static HashMap<String, Object> getContainer() {
+		return container;
+	}
 }
