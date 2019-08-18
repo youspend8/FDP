@@ -43,13 +43,13 @@ public class AirKorea {
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 
 			String line = "";
-			String result = "";
+			StringBuffer result = new StringBuffer();
 			
 			while ((line = br.readLine()) != null) {
-				result += line;
+				result.append(line);
 			}
 
-			return result;
+			return result.toString();
 		}
 
 		return conn.getResponseMessage();

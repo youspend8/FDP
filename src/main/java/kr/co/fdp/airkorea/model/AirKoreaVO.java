@@ -103,5 +103,11 @@ public class AirKoreaVO {
 	public void setContainer(HashMap<String, Object> container) {
 		this.container = container;
 	}
-	
+	@Override
+	public String toString() {
+		return "AirKoreaVO [pageNo=" + pageNo + ", numOfRows=" + numOfRows + ", stationName=" + stationName
+				+ ", dataTerm=" + dataTerm + ", ver=" + ver + ", sidoName=" + sidoName + ", searchDate=" + searchDate
+				+ ", informCode=" + informCode + ", itemCode=" + itemCode + ", dataGubun=" + dataGubun
+				+ ", searchCondition=" + searchCondition + ", container=" + container + "]";
+	}
 }

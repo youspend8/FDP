@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<microservice>
+	<service name="frontEnd">
+		<location>localhost</location>
+		<port>3000</port>
+		<description>메인 클라이언트</description>
+		<language>JavaScript</language>
+		<stacks>ReactJS, TypeScript</stacks>
+	</service>
+	<service name="backEnd">
+		<location>메인 서버</location>
+		<port>8080</port>
+		<description>메인 서버</description>
+		<language>Java</language>
+		<stacks>Spring Boot, mariaDB, mybatis</stacks>
+	</service>
+	<service name="클라우드 서비스 및 CI/CD">
+		<location>localhost</location>
+		<port>8080</port>
+		<description>사용한 클라우드 서비스와 지속적인 통합, 배포의 자동화 구성 정보</description>
+		<stacks>Google Cloud Platform, Github, Jenkins</stacks>
+	</service>
+	<service name="Authentication 서비스">
+		<location>localhost</location>
+		<port>8080</port>
+		<description>프로젝트의 인증을 담당하는 서버</description>
+		<language>Java</language>
+		<stacks>Spring Security</stacks>
+	</service>
+	<service name="Airkorea Api 서비스">
+		<location>localhost</location>
+		<port>8080</port>
+		<description>미세먼지 API를 활용하여 특정한 요청을 받고 응답을 제공하는 서버</description>
+		<language>Java</language>
+		<stacks>Airkorea Open API</stacks>
+	</service>
+	<service name="게시판 서비스">
+		<location>localhost</location>
+		<port>8081</port>
+		<description>공지사항, 일반 게시판 관련 서비스</description>
+		<language>JavaScript</language>
+		<stacks>NodeJS, ExpressJS</stacks>
+	</service>	
+</microservice>
