@@ -5,10 +5,10 @@ import org.json.XML;
 import org.springframework.stereotype.Service;
 
 import kr.co.fdp.Dispatcher;
-import kr.co.fdp.abstracts.AbstractService;
+import kr.co.fdp.abstracts.AbstractAirKoreaService;
 
 @Service
-public class InformationService extends AbstractService {
+public class InformationService extends AbstractAirKoreaService {
 
 	@Override
 	protected void beforeInvoke() {
