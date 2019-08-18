@@ -2,12 +2,12 @@ package kr.co.fdp.airkorea.service;
 
 import org.springframework.stereotype.Service;
 
-import kr.co.fdp.abstracts.AbstractService;
+import kr.co.fdp.abstracts.AbstractAirKoreaService;
 import kr.co.fdp.airkorea.constance.AirKoreaServiceConst;
 import kr.co.fdp.airkorea.model.AirKoreaVO;
 
 @Service
-public class AirPollutionInfoSvcImpl extends AbstractService implements AirPollutionInfoSvc {
+public class AirPollutionInfoSvcImpl extends AbstractAirKoreaService implements AirPollutionInfoSvc {
 
 	@Override
 	public String getMsrstnAcctoRltmMesureDnsty(AirKoreaVO query) {

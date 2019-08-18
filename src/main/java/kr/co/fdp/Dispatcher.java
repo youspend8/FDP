@@ -73,7 +73,9 @@ public class Dispatcher extends DispatcherServlet {
 
 	@Override
 	protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println(request.getSession().getCreationTime());
+		System.out.println("Request-URI :: " + request.getRequestURI());
+		System.out.println("Content-Type :: " + request.getContentType());
+		System.out.println("SESSION :: " + request.getSession().getCreationTime());
 		super.doDispatch(request, response);
 	}
 

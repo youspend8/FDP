@@ -91,5 +91,7 @@ public class Global {
 	public Object clone() {
 		return container.clone();
 	}
-	
+	public static HashMap<String, Object> getContainer() {
+		return container;
+	}
 }
